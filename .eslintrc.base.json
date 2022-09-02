@@ -1,0 +1,82 @@
+{
+  "plugins": ["@typescript-eslint"],
+  "extends": ["airbnb-typescript", "react-app"],
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.tsx"
+      ],
+      "rules": {
+        "@typescript-eslint/comma-dangle": "off"
+      }
+    }
+  ],
+  "rules": {
+    "no-underscore-dangle": 0,
+    "consistent-return": 0,
+    "comma-dangle": ["error", "always-multiline"],
+    "object-curly-spacing": ["warn", "always"],
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      "error",
+      {
+        "ignoreRestArgs": true
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 200,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "react/jsx-key": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.js",
+          "**/*.test.jsx",
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "src/tests/**/*"
+        ]
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-boolean-value": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/destructuring-assignment": "off",
+    "react/require-default-props": "off",
+    "no-nested-ternary": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "react/react-in-jsx-scope": "off",
+    "arrow-body-style": "off"
+  }
+}

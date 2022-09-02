@@ -1,0 +1,12 @@
+{
+  "name": "gun-relay",
+  "version": "0.0.1",
+  "description": "Gun DB relay server",
+  "main": "index.js",
+  "author": "Ziad Saab <ziad.saab@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1",
+    "gun": "^0.2020.1238"
+  }
+}

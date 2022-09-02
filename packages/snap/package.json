@@ -1,0 +1,57 @@
+{
+  "name": "@snappy-recovery/snap",
+  "version": "0.0.1",
+  "description": "Snappy Recovery Snap: Social recovery RPC API for MetaMask wallets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ziad-saab/snappy-recovery.git"
+  },
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "build:clean": "yarn clean && yarn build",
+    "build:website": "node ./scripts/build-website.js",
+    "build": "mm-snap build",
+    "serve": "mm-snap serve",
+    "watch": "mm-snap watch",
+    "clean": "rimraf dist/*",
+    "test": "echo 'TODO'",
+    "lint:eslint": "eslint . --cache --ext js,ts",
+    "lint:misc": "prettier '**/*.json' '**/*.md' '!CHANGELOG.md' --ignore-path .gitignore",
+    "lint": "yarn lint:eslint && yarn lint:misc --check",
+    "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
+    "lint:changelog": "yarn auto-changelog validate"
+  },
+  "devDependencies": {
+    "@metamask/auto-changelog": "^2.5.0",
+    "@metamask/eslint-config": "^8.0.0",
+    "@metamask/eslint-config-jest": "^8.0.0",
+    "@metamask/eslint-config-nodejs": "^8.0.0",
+    "@metamask/snaps-cli": "^0.19.1",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "mkdirp": "^1.0.4",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@metamask/key-tree": "^4.0.0",
+    "@metamask/snap-types": "^0.20.0",
+    "@snappy-recovery/shared": "*",
+    "@types/elliptic": "^6.4.14",
+    "bn.js": "^5.2.1",
+    "buffer": "^6.0.3",
+    "elliptic": "^6.5.4",
+    "eth-crypto": "^2.3.0",
+    "ethjs-unit": "^0.1.6",
+    "multiformats": "^9.7.1",
+    "secrets.js-grempe": "^2.0.0"
+  }
+}

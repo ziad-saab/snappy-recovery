@@ -1,0 +1,13 @@
+{
+  "name": "@snappy-recovery/shared",
+  "version": "0.0.1",
+  "main": "./lib/src/index.js",
+  "types": "./lib/src/index.d.ts",
+  "module": "./lib/src/index.js",
+  "scripts": {
+    "watch": "yarn tsc -b --watch"
+  },
+  "dependencies": {
+    "eth-crypto": "^2.3.0"
+  }
+}

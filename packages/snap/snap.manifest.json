@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "description": "Social recovery for MetaMask wallets",
+  "proposedName": "💥 Snappy Recovery",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ziad-saab/snappy-recovery.git"
+  },
+  "source": {
+    "shasum": "lfGbLdmR+sXt++ue4WP5v921zYO0AViNKoAgRJPngPs=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/icon.svg",
+        "packageName": "@snappy-recovery/snap",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_getBip44Entropy_60": {},
+    "snap_confirm": {}
+  },
+  "manifestVersion": "0.1"
+}

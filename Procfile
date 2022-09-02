@@ -1,0 +1,1 @@
+web: cd packages/gun-relay && node ./index.js
