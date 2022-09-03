@@ -2,6 +2,13 @@
 
 Social Recovery for MetaMask wallets using "Snaps", sandboxed JS plugins for MetaMask.
 
+Watch the demo on YouTube:
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=HjZ2yxUm30k"><img src="https://img.youtube.com/vi/HjZ2yxUm30k/hqdefault.jpg"></a>
+</p>
+
+
 ## Why it's safe-ish?
 * The Snap code runs in a **sandboxed environment** inside the MetaMask extension
 * The Snap code has access to private keys, but no internet access -- it doesn't request that permission
