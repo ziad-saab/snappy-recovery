@@ -24,6 +24,9 @@
     "eslint-plugin-unicorn": "^20.1.0",
     "typescript": "^4.4.2"
   },
+  "scripts": {
+    "build": "(cd packages/shared && yarn tsc -b)  && (yarn --cwd packages/webapp build)"
+  },
   "workspaces": {
     "packages": [
       "packages/*"
