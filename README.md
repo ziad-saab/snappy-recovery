@@ -8,6 +8,9 @@ Watch the demo on YouTube:
   <a href="https://www.youtube.com/watch?v=HjZ2yxUm30k"><img src="https://img.youtube.com/vi/HjZ2yxUm30k/hqdefault.jpg"></a>
 </p>
 
+## How it works, visually
+
+![Snappy Recovery diagram](snappy-recovery-diagram.png)
 
 ## Why it's safe-ish?
 * The Snap code runs in a **sandboxed environment** inside the MetaMask extension
