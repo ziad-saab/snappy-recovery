@@ -3578,10 +3578,10 @@
     tweetnacl "^1.0.3"
     tweetnacl-util "^0.15.1"
 
-"@metamask/key-tree@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@metamask/key-tree/-/key-tree-4.0.0.tgz#2de20618793e85ee300b4b3d4ca4de9d7f40e276"
-  integrity sha512-Pj5nN6Ko15rei6dSgQnTH64JEN1I8JuTM6Q06/1V7Xp3Fw3g3Nf1scr/u7cQnL17YxXALMCDYaEPdQveo70kSA==
+"@metamask/key-tree@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@metamask/key-tree/-/key-tree-5.0.2.tgz#2d71ba26faddbad1735eeaa04dc37f1dfabfa9cf"
+  integrity sha512-82m+GbL/EybAslxuPcnJtt2SUYPrggMeS25lILr5p+ZnM5G58pOoFmT3G2VMdZOE+tdUoX2dC4sOD7VcQ0pmQQ==
   dependencies:
     "@noble/ed25519" "^1.6.0"
     "@noble/hashes" "^1.0.0"
