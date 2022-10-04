@@ -5,7 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@metamask/detect-provider": "^1.2.0",
+    "@metamask/detect-provider": "^2.0.0",
     "@metamask/providers": "^9.1.0",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.5.1",
