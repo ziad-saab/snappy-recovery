@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@metamask/key-tree": "^4.0.0",
-    "@metamask/snap-types": "^0.20.0",
+    "@metamask/snap-types": "^0.22.1",
     "@snappy-recovery/shared": "*",
     "@types/elliptic": "^6.4.14",
     "bn.js": "^5.2.1",
