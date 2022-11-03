@@ -3611,10 +3611,10 @@
     "@metamask/safe-event-emitter" "^2.0.0"
     through2 "^2.0.3"
 
-"@metamask/providers@^9.1.0":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@metamask/providers/-/providers-9.1.0.tgz#ccbbfd698eeb777c5c45aee91c3ad97e20eab20b"
-  integrity sha512-ZMfdIZ8PzaK1m0NblQOPTuDaMuTStSxrUYJiDNRi+UDqVd84WItQVXe3jy0k7TzhpjkbzgXrTK7rUcoQRhkwtw==
+"@metamask/providers@^10.2.0":
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/@metamask/providers/-/providers-10.2.0.tgz#8131de667db0c55a61a150438c2a7f17b2d53615"
+  integrity sha512-qO3cOZZr/YJ8LLOqhR+51GGBiRknalfV/na7hwXyqZ1R/uxeLeNdqCyg+g8l3Z8JcLoEiaKGNJOEV3FFyLw8mQ==
   dependencies:
     "@metamask/object-multiplex" "^1.1.0"
     "@metamask/safe-event-emitter" "^2.0.0"
@@ -3625,7 +3625,7 @@
     fast-deep-equal "^2.0.1"
     is-stream "^2.0.0"
     json-rpc-engine "^6.1.0"
-    json-rpc-middleware-stream "^3.0.0"
+    json-rpc-middleware-stream "^4.2.0"
     pump "^3.0.0"
     webextension-polyfill-ts "^0.25.0"
 
@@ -10808,10 +10808,10 @@ json-rpc-engine@^6.1.0:
     "@metamask/safe-event-emitter" "^2.0.0"
     eth-rpc-errors "^4.0.2"
 
-json-rpc-middleware-stream@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/json-rpc-middleware-stream/-/json-rpc-middleware-stream-3.0.0.tgz#8540331d884f36b9e0ad31054cc68ac6b5a89b52"
-  integrity sha512-JmZmlehE0xF3swwORpLHny/GvW3MZxCsb2uFNBrn8TOqMqivzCfz232NSDLLOtIQlrPlgyEjiYpyzyOPFOzClw==
+json-rpc-middleware-stream@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/json-rpc-middleware-stream/-/json-rpc-middleware-stream-4.2.0.tgz#a235814e031a2f85cc14b213aa7d42b75527104b"
+  integrity sha512-vaPaFVnhozfAVx6ImO3YuSrzl6A1OCktDi9Prw6NASn2VRYfe3pzv+2QGzFHRjViztr61oHi6KC3k8cujrfK7A==
   dependencies:
     "@metamask/safe-event-emitter" "^2.0.0"
     readable-stream "^2.3.3"
