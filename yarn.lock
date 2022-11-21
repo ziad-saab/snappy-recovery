@@ -3546,10 +3546,10 @@
   resolved "https://registry.yarnpkg.com/@metamask/eslint-config-jest/-/eslint-config-jest-8.0.0.tgz#1433c2dffbd60239430ea789c71df11e94872a1c"
   integrity sha512-m2/crRcaiRO8z6NC04+AudfjgIXvdrUy2oDjecjELa3nmgkJ+cVemCfioREpjaXoXW/soNImZXbgLrA98uQ6ig==
 
-"@metamask/eslint-config-nodejs@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@metamask/eslint-config-nodejs/-/eslint-config-nodejs-8.0.0.tgz#2181f2777a8e66825c2fd9882cb173b5a4d2b689"
-  integrity sha512-hN49rqgzhqo7WCJuCCD8P3e9ZhwNt6m9+XEKxnj3v1DKw8v6P6BW210LvOfzd6TfpZxN20qqnt5kxZOcN/ZPpA==
+"@metamask/eslint-config-nodejs@^11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@metamask/eslint-config-nodejs/-/eslint-config-nodejs-11.0.1.tgz#b8b4f54ccba6543a6c44f7fd59b6b2c04b598c01"
+  integrity sha512-7J1colRW+JZ8XBc1t0QkrAlcRPnQKAYipAse37zZGBKkuc4MoTl9A15dKoHi/xRUqDRVunoD79Uw9ZJtSGiKSA==
 
 "@metamask/eslint-config@^8.0.0":
   version "8.0.0"
