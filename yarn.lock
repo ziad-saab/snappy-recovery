@@ -3551,10 +3551,10 @@
   resolved "https://registry.yarnpkg.com/@metamask/eslint-config-nodejs/-/eslint-config-nodejs-8.0.0.tgz#2181f2777a8e66825c2fd9882cb173b5a4d2b689"
   integrity sha512-hN49rqgzhqo7WCJuCCD8P3e9ZhwNt6m9+XEKxnj3v1DKw8v6P6BW210LvOfzd6TfpZxN20qqnt5kxZOcN/ZPpA==
 
-"@metamask/eslint-config@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@metamask/eslint-config/-/eslint-config-8.0.0.tgz#f4e3bcd6b37ec135b5a72902b0526cba2a6b5a4d"
-  integrity sha512-ZO9B3ohNhjomrufNAkxnDXV46Kut7NKzri7itDxUzHJncNtI1of7ewWh6fKPl/hr6Al6Gd7WgjPdJZGFpzKPQw==
+"@metamask/eslint-config@^11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@metamask/eslint-config/-/eslint-config-11.0.1.tgz#a197bbb89d5d9f76b812b073ef90af2db8089777"
+  integrity sha512-+Y6JrCbYg8RZSARmKL2RmaTx6e4nxJy/DH4JkgzRuDWUxw8hxkDTRggfj3ljfFvUIGiTK9xFp5sd52wCRlkf/g==
 
 "@metamask/eth-hd-keyring@^4.0.2":
   version "4.0.2"
