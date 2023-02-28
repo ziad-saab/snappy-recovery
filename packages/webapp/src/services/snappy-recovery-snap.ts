@@ -11,43 +11,19 @@ import type {
 } from '@snappy-recovery/shared';
 import { Buffer } from 'buffer';
 import { SNAPPY_RECOVERY_SNAP_ID } from 'utils/constants';
-import { delay } from 'utils/delay';
-import { isSnapInstalled } from './ethereum';
 import { user, userData } from './gun';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 (window as any).Buffer = Buffer;
 
-export const isSnappyRecoverySnapInstalled = async () => {
-  if (await isSnapInstalled(SNAPPY_RECOVERY_SNAP_ID)) {
-    let snapActive = false;
-    while (!snapActive) {
-      try {
-        // eslint-disable-next-line no-await-in-loop
-        await ethereum.request({
-          method: 'wallet_invokeSnap',
-          params: [SNAPPY_RECOVERY_SNAP_ID, {
-            method: 'check',
-          }],
-        });
-        snapActive = true;
-      } catch (err) {
-        // eslint-disable-next-line no-await-in-loop
-        await delay(500);
-      }
-    }
-
-    return true;
-  }
-
-  return false;
-};
-
 export const getSnappyKeys = () => ethereum.request({
   method: 'wallet_invokeSnap',
-  params: [SNAPPY_RECOVERY_SNAP_ID, {
-    method: 'getSnappyKeys',
-  }],
+  params: {
+    snapId: SNAPPY_RECOVERY_SNAP_ID,
+    request: {
+      method: 'getSnappyKeys',
+    },
+  },
 }) as Promise<GetSnappyKeysResult>;
 
 const authUserWithKeypairs = (keypairs: GetSnappyKeysResult) => {
@@ -76,10 +52,13 @@ export const login = async () => {
 
 export const setupRecovery = (setupParams: SetupRecoveryParams) => ethereum.request({
   method: 'wallet_invokeSnap',
-  params: [SNAPPY_RECOVERY_SNAP_ID, {
-    method: 'setupRecovery',
-    params: setupParams,
-  }],
+  params: {
+    snapId: SNAPPY_RECOVERY_SNAP_ID,
+    request: {
+      method: 'setupRecovery',
+      params: setupParams,
+    },
+  },
 }) as Promise<SetupRecoveryResult>;
 
 export const finishSetup = async (recoveryData: SetupRecoveryResult): Promise<void> => {
@@ -97,31 +76,43 @@ export const finishSetup = async (recoveryData: SetupRecoveryResult): Promise<vo
 
 export const getRecoveryPublicKey = () => ethereum.request({
   method: 'wallet_invokeSnap',
-  params: [SNAPPY_RECOVERY_SNAP_ID, {
-    method: 'getRecoveryPublicKey',
-  }],
+  params: {
+    snapId: SNAPPY_RECOVERY_SNAP_ID,
+    request: {
+      method: 'getRecoveryPublicKey',
+    },
+  },
 }) as Promise<GetRecoveryPublicKeyResult>;
 
 export const assistWithRecovery = (assistParams: AssistWithRecoveryParams) => ethereum.request({
   method: 'wallet_invokeSnap',
-  params: [SNAPPY_RECOVERY_SNAP_ID, {
-    method: 'assistWithRecovery',
-    params: assistParams,
-  }],
+  params: {
+    snapId: SNAPPY_RECOVERY_SNAP_ID,
+    request: {
+      method: 'assistWithRecovery',
+      params: assistParams,
+    },
+  },
 }) as Promise<AssistWithRecoveryResult>;
 
 export const getRecoveredAddresses = (recoveryParams: GetRecoveredAddressesParams) => ethereum.request({
   method: 'wallet_invokeSnap',
-  params: [SNAPPY_RECOVERY_SNAP_ID, {
-    method: 'getRecoveredAddresses',
-    params: recoveryParams,
-  }],
+  params: {
+    snapId: SNAPPY_RECOVERY_SNAP_ID,
+    request: {
+      method: 'getRecoveredAddresses',
+      params: recoveryParams,
+    },
+  },
 }) as Promise<GetRecoveredAddressesResult>;
 
 export const showPrivateKeyForRecoveredAddress = (recoveryParams: ShowPrivateKeyForRecoveredAddressParams) => ethereum.request({
   method: 'wallet_invokeSnap',
-  params: [SNAPPY_RECOVERY_SNAP_ID, {
-    method: 'showPrivateKeyForRecoveredAddress',
-    params: recoveryParams,
-  }],
+  params: {
+    snapId: SNAPPY_RECOVERY_SNAP_ID,
+    request: {
+      method: 'showPrivateKeyForRecoveredAddress',
+      params: recoveryParams,
+    },
+  },
 }) as Promise<void>;

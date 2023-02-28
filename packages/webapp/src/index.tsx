@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from 'hooks/auth';
 import { MetaMaskProvider } from 'hooks/metamask';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { grey } from '@mui/material/colors';
 import { App } from './app';
 
 const root = ReactDOM.createRoot(

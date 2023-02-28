@@ -34,8 +34,11 @@ export const base64UrlPubkeyToHex = (base64Pubkey: string): string => {
   return base64Pubkey.split('.').map((coord) => base64UrlEncodeToHexString(coord)).join('');
 };
 
-export const getParentEthereumNode = () => wallet.request({
-  method: 'snap_getBip44Entropy_60',
+export const getParentEthereumNode = () => snap.request({
+  method: 'snap_getBip44Entropy',
+  params: {
+    coinType: 60
+  }
 }) as Promise<JsonBIP44CoinTypeNode>;
 
 export const generateAesKey = () => {
