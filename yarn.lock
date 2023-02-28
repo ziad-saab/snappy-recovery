@@ -3636,10 +3636,10 @@
   resolved "https://registry.yarnpkg.com/@metamask/eslint-config-typescript/-/eslint-config-typescript-10.0.0.tgz#ff7942d4f5fdd5dec393d55234dcec11894c66eb"
   integrity sha512-74WRP85jkG8mHQn3sPGOVFkiJ5e5raR2fQ6XOdiK9ZIafe+Uc2hBer6hc3ybaGlhSmu+3WGJ/KOKv6z634aYUw==
 
-"@metamask/eslint-config@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@metamask/eslint-config/-/eslint-config-10.0.0.tgz#f36c23e339ba581d4fb1f7b30b0d73325869b9e6"
-  integrity sha512-JeoCyFVNOByDHb5RfYVcelYplODKVmp0WR7IL6/7HRFHj90HL9xozWspVJzE+UI8oLHmzh4P4NyYNtEkjEyryg==
+"@metamask/eslint-config@^11.1.0":
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/@metamask/eslint-config/-/eslint-config-11.1.0.tgz#45f796a1b98871a2d34e87ffbda9956d27d74958"
+  integrity sha512-XBxkH9fWsir59uixPutzImX7inzauV98iW4KTdWeoakFOmBojaosV36MfwkRzw45wLz722W/IHljDklzemOoyw==
 
 "@metamask/eth-hd-keyring@^4.0.2":
   version "4.0.2"
