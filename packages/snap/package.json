@@ -50,7 +50,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "@metamask/key-tree": "^4.0.0",
+    "@metamask/key-tree": "^6.2.1",
     "@metamask/snap-types": "^0.20.0",
     "@snappy-recovery/shared": "*",
     "@types/elliptic": "^6.4.14",
