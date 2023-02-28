@@ -1,4 +1,5 @@
-import { OnRpcRequestHandler } from '@metamask/snap-types';
+import './buffer-fix';
+import { OnRpcRequestHandler } from '@metamask/snaps-types';
 import { assistWithRecovery, isAssistWithRecoveryParams } from './rpc/assist-with-recovery';
 import { getRecoveredAddresses, isGetRecoveredAddressesParams } from './rpc/get-recovered-addresses';
 import { getRecoveryPublicKey } from './rpc/get-recovery-public-key';

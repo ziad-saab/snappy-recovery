@@ -13,22 +13,28 @@ export const showPrivateKeyForRecoveredAddress = async (params: ShowPrivateKeyFo
     account: params.addressIndices.accountIndex,
     address_index: params.addressIndices.addressIndex,
   });
-  const confirmed = await wallet.request({
-    method: 'snap_confirm',
-    params: [{
-      prompt: 'Are you sure?',
-      description: `Click "Approve" to reveal the private key for address ${targetAddress.address}`,
-    }],
+  const confirmed = await snap.request({
+    method: 'snap_dialog',
+    params: {
+      type: 'Confirm',
+      content: panel([
+        heading("Are you sure?"),
+        text(`Click "Approve" to reveal the private key for address ${targetAddress.address}`)
+      ])
+    },
   }) as boolean;
 
   if (confirmed) {
-    await wallet.request({
-      method: 'snap_confirm',
-      params: [{
-        prompt: 'Your private key',
-        description: `Here is the private key for address ${targetAddress.address}`,
-        textAreaContent: targetAddress.privateKey?.toString(),
-      }],
+    await snap.request({
+      method: 'snap_dialog',
+      params: {
+        type: 'Alert',
+        content: panel([
+          heading("Your private key"),
+          text(`Here is the private key for address ${targetAddress.address}`),
+          copiable(targetAddress.privateKey?.toString())
+        ])
+      },
     });
   }
 };

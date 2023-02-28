@@ -1,78 +1,130 @@
-import detectEthereumProvider from '@metamask/detect-provider';
-import { MetaMaskInpageProvider } from '@metamask/providers';
+/* eslint-disable react-hooks/rules-of-hooks */
 import {
-  createContext, PropsWithChildren, useContext, useEffect, useState,
+  createContext,
+  Dispatch,
+  ReactNode,
+  Reducer,
+  useEffect,
+  useReducer,
 } from 'react';
-import { isSnappyRecoverySnapInstalled } from 'services/snappy-recovery-snap';
-import { delay } from 'utils/delay';
+import { Snap } from '../types';
+import { isFlask, getSnap } from '../utils/metamask';
 
-interface MetaMaskContext {
-  checkingMetaMaskFlask: boolean;
-  isMetaMaskFlask: boolean | null;
-  checkingSnappyRecoverySnapInstalled: boolean;
-  isSnappyRecoverySnapInstalled: boolean | null;
-  isDevMode: boolean;
-}
-
-const metaMaskContext = createContext<MetaMaskContext>({
-  checkingMetaMaskFlask: true,
-  isMetaMaskFlask: false,
-  checkingSnappyRecoverySnapInstalled: true,
-  isSnappyRecoverySnapInstalled: false,
-  isDevMode: false,
-});
-
-export const MetaMaskProvider = ({ children }: PropsWithChildren) => {
-  const [isMetaMaskFlask, setIsMetaMaskFlask] = useState<boolean | null>(null);
-  const checkingMetaMaskFlask = isMetaMaskFlask === null;
-
-  const [isInstalled, setIsInstalled] = useState<boolean | null>(null);
-  const checkingSnappyRecoverySnapInstalled = isInstalled === null;
-
-  useEffect(() => {
-    let check = true;
-    (async () => {
-      while (check) {
-        // eslint-disable-next-line no-await-in-loop
-        const installed = await isSnappyRecoverySnapInstalled();
-        setIsInstalled(installed);
-
-        if (installed) {
-          check = false;
-        } else {
-          // eslint-disable-next-line no-await-in-loop
-          await delay(500);
-        }
-      }
-    })();
-
-    return () => { check = false; };
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const provider = await detectEthereumProvider() as MetaMaskInpageProvider | undefined;
-      const isFlask = (
-        await provider?.request({ method: 'web3_clientVersion' }) as string | undefined
-      )?.includes('flask');
-
-      setIsMetaMaskFlask(!!isFlask);
-    })();
-  }, []);
-
-  return (
-    <metaMaskContext.Provider
-      value={{
-        checkingMetaMaskFlask,
-        isMetaMaskFlask,
-        checkingSnappyRecoverySnapInstalled,
-        isSnappyRecoverySnapInstalled: isInstalled,
-        isDevMode: window.location.origin.startsWith('http://localhost'),
-      }}
-    >
-      {children}
-    </metaMaskContext.Provider>
-  );
+export type MetamaskState = {
+  isFlask: boolean;
+  installedSnap?: Snap;
+  error?: Error;
 };
 
-export const useMetaMask = () => useContext(metaMaskContext);
+const initialState: MetamaskState = {
+  isFlask: false,
+  error: undefined,
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type MetamaskDispatch = { type: MetamaskActions; payload: any };
+
+export const MetaMaskContext = createContext<
+[MetamaskState, Dispatch<MetamaskDispatch>]
+>([
+  initialState,
+  () => {
+    /* no op */
+  },
+]);
+
+export enum MetamaskActions {
+  SetInstalled = 'SetInstalled',
+  SetFlaskDetected = 'SetFlaskDetected',
+  SetError = 'SetError',
+}
+
+const reducer: Reducer<MetamaskState, MetamaskDispatch> = (state, action) => {
+  switch (action.type) {
+    case MetamaskActions.SetInstalled:
+      return {
+        ...state,
+        installedSnap: action.payload,
+      };
+
+    case MetamaskActions.SetFlaskDetected:
+      return {
+        ...state,
+        isFlask: action.payload,
+      };
+
+    case MetamaskActions.SetError:
+      return {
+        ...state,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+/**
+ * MetaMask context provider to handle MetaMask and snap status.
+ *
+ * @param props - React Props.
+ * @param props.children - React component to be wrapped by the Provider.
+ * @returns JSX.
+ */
+export const MetaMaskProvider = ({ children }: { children: ReactNode }) => {
+  if (typeof window === 'undefined') {
+    return <>{children}</>;
+  }
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    async function detectFlask() {
+      const isFlaskDetected = await isFlask();
+
+      dispatch({
+        type: MetamaskActions.SetFlaskDetected,
+        payload: isFlaskDetected,
+      });
+    }
+
+    async function detectSnapInstalled() {
+      const installedSnap = await getSnap();
+      dispatch({
+        type: MetamaskActions.SetInstalled,
+        payload: installedSnap,
+      });
+    }
+
+    detectFlask();
+
+    if (state.isFlask) {
+      detectSnapInstalled();
+    }
+  }, [state.isFlask, window.ethereum]);
+
+  useEffect(() => {
+    let timeoutId: number;
+
+    if (state.error) {
+      timeoutId = window.setTimeout(() => {
+        dispatch({
+          type: MetamaskActions.SetError,
+          payload: undefined,
+        });
+      }, 10000);
+    }
+
+    return () => {
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [state.error]);
+
+  return (
+    <MetaMaskContext.Provider value={[state, dispatch]}>
+      {children}
+    </MetaMaskContext.Provider>
+  );
+};

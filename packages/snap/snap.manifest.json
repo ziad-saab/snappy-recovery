@@ -7,7 +7,7 @@
     "url": "https://github.com/ziad-saab/snappy-recovery.git"
   },
   "source": {
-    "shasum": "lfGbLdmR+sXt++ue4WP5v921zYO0AViNKoAgRJPngPs=",
+    "shasum": "tXbKIokV7+SUMvGT/fXidmG0LFjUZGwTYpQAVhsNhBQ=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -18,8 +18,17 @@
     }
   },
   "initialPermissions": {
-    "snap_getBip44Entropy_60": {},
-    "snap_confirm": {}
+    "snap_getBip44Entropy": [
+      {
+        "coinType": 60
+      }
+    ],
+    "snap_dialog": {},
+    "endowment:ethereum-provider": {},
+    "endowment:rpc": {
+      "dapps": true,
+      "snaps": false
+    }
   },
   "manifestVersion": "0.1"
 }

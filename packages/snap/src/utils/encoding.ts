@@ -1,5 +1,8 @@
-import { Buffer } from 'buffer';
 import { base64url } from 'multiformats/bases/base64';
+
+const b = require('buffer/');
+
+console.log('Buffer', b);
 
 export const uint8ArrayToBase64UrlEncode = (bytes: Uint8Array): string => {
   return base64url.baseEncode(bytes);

@@ -28,7 +28,7 @@ const findAllAddressesForNode = async (node: JsonBIP44CoinTypeNode): Promise<Rec
     /* eslint-disable no-await-in-loop */
     while (true) {
       const address = await deriveBIP44AddressKey(node, { account: accountIndex, address_index: addressIndex });
-      const numTransactionsHex = await wallet.request({
+      const numTransactionsHex = await ethereum.request({
         method: 'eth_getTransactionCount',
         params: [
           address.address,
@@ -36,7 +36,7 @@ const findAllAddressesForNode = async (node: JsonBIP44CoinTypeNode): Promise<Rec
         ],
       }) as string;
       const numTransactions = parseInt(numTransactionsHex, 16);
-      const balanceHex = await wallet.request({
+      const balanceHex = await ethereum.request({
         method: 'eth_getBalance',
         params: [
           address.address,
