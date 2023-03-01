@@ -9,6 +9,7 @@ import {
   Box, TextField, Button, List, ListItem, Divider, Paper, IconButton,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/DeleteOutline';
+import { CssOutlined } from '@mui/icons-material';
 
 export const Setup = () => {
   const [publicKeys, setPublicKeys] = useState<string[]>([]);
@@ -29,13 +30,19 @@ export const Setup = () => {
       }
       publicKeyInput.current.value = '';
       publicKeyInput.current.focus();
+      // console.log(publicKeys);
     }
+  };
+
+  const showPublicKeys = () => {
+    console.log(publicKeys);
   };
 
   const navigate = useNavigate();
   const doSetup = async () => {
     if (hasEnoughPublicKeys) {
       setIsSettingUp(true);
+      console.log('is Setting up');
       try {
         const friendsKeys = await Promise.all(publicKeys.map(async (gunPublicKey): Promise<FriendKeys> => {
           const backupPublicKeyHex = await userData('backupPublicKeyHex', gunPublicKey).then();
@@ -134,6 +141,8 @@ export const Setup = () => {
         >
           Setup Recovery
         </Button>
+
+        {/* <Button onClick={showPublicKeys}>Show publicKeys</Button> */}
       </p>
     </Box>
   );
