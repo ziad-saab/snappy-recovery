@@ -9,7 +9,11 @@ import {
   FormEvent, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { userData, gunData } from 'services/gun';
-import { getRecoveredAddresses, getRecoveryPublicKey, showPrivateKeyForRecoveredAddress } from 'services/snappy-recovery-snap';
+import {
+  getRecoveredAddresses,
+  getRecoveryPublicKey,
+  showPrivateKeyForRecoveredAddress,
+} from 'services/snappy-recovery-snap';
 
 export const useRecovery = () => {
   const [originalPublicKey, setOriginalPublicKey] = useState('');
@@ -44,6 +48,7 @@ export const useRecovery = () => {
   }, [recoveryPublicKey]);
 
   const [recoveredAddresses, setRecoveredAddresses] = useState<RecoveredAddress[] | null>(null);
+
   const doRecovery = useCallback(async () => {
     if (isRecoveryReady) {
       const encryptedBackupKeypairParts = Object.values(recoveryShards);

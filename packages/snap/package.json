@@ -31,7 +31,6 @@
     "@metamask/eslint-config-typescript": "^10.0.0",
     "@metamask/snaps-cli": "^0.27.1",
     "@metamask/snaps-types": "^0.27.1",
-    "@metamask/snaps-ui": "^0.27.1",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
     "eslint": "^8.21.0",
@@ -52,6 +51,7 @@
   "dependencies": {
     "@metamask/key-tree": "^4.0.0",
     "@metamask/snap-types": "^0.20.0",
+    "@metamask/snaps-ui": "^0.30.0",
     "@snappy-recovery/shared": "*",
     "@types/elliptic": "^6.4.14",
     "bn.js": "^5.2.1",
